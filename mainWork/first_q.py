@@ -20,7 +20,7 @@ for d in data:
     t["id"] = d['id']
     download_urls.append(t)
 
-os.makedirs("download_images")
+os.makedirs("img_dir")
 
 for url in download_urls[:10]:
     image_id = url['id']
@@ -28,7 +28,7 @@ for url in download_urls[:10]:
 
     image_data = requests.get(img_url)
 
-    with open(f'download_images/{image_id}.jpg', 'wb') as f:
+    with open(f'img_dir/{image_id}.jpg', 'wb') as f:
         f.write(image_data.content)
 
     print(f'Downloaded {image_id}.jpg')
